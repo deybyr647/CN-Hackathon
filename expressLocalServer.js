@@ -1,11 +1,10 @@
 const { exec } = require("child_process");
-let express = require('express');
-let app = express();
-let opn = require('opn');
-let fetch = require('node-fetch');
-let faceapi = require('face-api.js');
-let canvas = require('canvas');
-let path = require('path');
+const express = require('express');
+const app = express();
+const opn = require('opn');
+const fetch = require('node-fetch');
+const faceapi = require('face-api.js');
+const canvas = require('canvas');
 faceapi.env.monkeyPatch({ fetch: fetch });
 const { Canvas, Image, ImageData } = canvas
 faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
