@@ -27,7 +27,7 @@ async function face_api() {
 	function start(){
 		faceapi.detectSingleFace(img).withFaceExpressions().then(data => {
 			console.log(data.expressions);
-			let jsonData = JSON.stringify(data.expressions);
+			let jsonData = data.expressions
 			console.log(jsonData);
 
 			fs.readFile('data.json', 'utf-8', (err, filedata) => {
