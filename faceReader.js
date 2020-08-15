@@ -31,18 +31,18 @@ async function face_api() {
 
 	function start(){
 		faceapi.detectSingleFace(img).withFaceExpressions().then(data => {
-			let jsonData = {
+			let userData = {
 				"app"  : get_app(),
 				"data" : data.expressions,
 				"time" : new Date(),
 			};
-			console.log(jsonData);
+			console.log(userData);
 
 			fs.readFile('data.json', 'utf-8', (err, filedata) => {
 				if(err) throw err;
 				let objectArray = JSON.parse(filedata);
 
-				objectArray.results.push(jsonData);
+				objectArray.results.push(userData);
 
 				console.log(objectArray);
 
