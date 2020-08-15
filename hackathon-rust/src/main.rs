@@ -62,8 +62,10 @@ fn get_pred() {
 
 fn run() {
 	let input = std::fs::read_to_string("../data.json").unwrap();
-	let json_object = json::parse(input.as_str()).unwrap();
-	let results = &json_object["results"];
+	let mut json_object = json::parse(input.as_str()).unwrap();
+	let results = &mut json_object["results"];
+	println!("{}", results);
+	results.array_remove(0);
 	println!("{}", results);
 }
 
