@@ -46,12 +46,12 @@ fn call_python_string<S : AsRef<std::ffi::OsStr>>(script : S) -> String {
 	call_python(script).into_iter().map(|i| i as char).collect::<String>()
 }
 
-fn send_notif(title : &str, body : &str, icon : &str) {
+fn send_notif(title : &str, body : &str) {
 	use notify_rust::Notification;
 	Notification::new()
 	.summary(title)
+		.action("disable", "Turn Off MoodCam")
 	    .body(body)
-	    .icon(icon)
 		.show()
 		.unwrap();
 }
@@ -65,4 +65,5 @@ fn run() {
 }
 
 fn main() {
+	send_notif("hi!", "hee");
 }
