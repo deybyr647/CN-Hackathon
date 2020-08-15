@@ -5,5 +5,4 @@ hackathon-rust/target
 node_modules
 
 #Unnecessary VS Code Stuff
-
 .vscode

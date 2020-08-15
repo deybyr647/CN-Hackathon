@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/I-graham/CN-Hackathon#readme",
   "dependencies": {
+    "@tensorflow/tfjs-node": "^2.3.0",
+    "canvas": "^2.6.1",
+    "face-api.js": "^0.22.2",
     "opn": "^6.0.0"
   }
 }

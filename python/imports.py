@@ -16,4 +16,5 @@ def install_and_import(package):
 
 
 install_and_import('pygetwindow')
-    print(pygetwindow.getFocusedWindow())
+
+print(pygetwindow.getActiveWindow().title)
