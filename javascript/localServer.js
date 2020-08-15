@@ -2,6 +2,7 @@ let http = require('http');
 let url = require('url');
 let fs = require('fs');
 let opn = require('opn');
+const { Image } = require('canvas')
 
 console.log('Server now running at localhost:8080');
 let server = http.createServer((request, response) => {
@@ -53,7 +54,7 @@ let server = http.createServer((request, response) => {
             response.write('Page does not exist!');
             response.end();
             break;
-    }   
+    }
 })
 
 server.listen(8080);
