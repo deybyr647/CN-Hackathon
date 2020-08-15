@@ -26,7 +26,9 @@ async function face_api() {
 	function start(){
 		//faceapi.detectSingleFace(img).withFaceExpressions().then(x => console.log("|" + JSON.stringify(x.expressions) + "|"));
 		faceapi.detectSingleFace(img).withFaceExpressions().then(data => {
+			console.log(data.expressions);
 			let jsonData = JSON.stringify(data.expressions);
+			console.log(jsonData);
 			fs.writeFile('data.json', jsonData, 'utf8', (err) => {
 				console.error(err);
 			})
