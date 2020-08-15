@@ -18,12 +18,11 @@ let takePicture = () => {
 	return ret;
 }
 
-function face_api() {
+async function face_api() {
+
+	let img = await canvas.loadImage("./img.jpg");
 
 	let input_src = takePicture();
-	let img = new Image();
-	img.src = input_src;
-
 	const MODELS_URL = './models';
 	Promise.all([
 		faceapi.nets.ssdMobilenetv1.loadFromDisk(MODELS_URL),
