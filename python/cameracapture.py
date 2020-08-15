@@ -8,7 +8,6 @@ _, frame = video.read()
 
 for i in range(30):
 	_, frame = video.read()
+	cv2.waitKey(100)
 
-_, im_arr = cv2.imencode('.jpg', frame)
-im_b64 = base64.b64encode(im_arr)
-print("data:image/jpg;base64," + im_b64.decode('ascii'))
+cv2.imwrite("img.jpg", frame);

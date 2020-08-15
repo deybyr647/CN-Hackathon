@@ -5,24 +5,19 @@ let opn = require('opn');
 let fetch = require('node-fetch');
 let faceapi = require('face-api.js');
 let canvas = require('canvas');
-let path = require('path');
 faceapi.env.monkeyPatch({ fetch: fetch });
 const { Canvas, Image, ImageData } = canvas
 faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
 
-let takePicture = () => {
-	let ret;
-	exec("python python/cameracapture.py", (error, stdout, stderr) => {
-		ret = stdout;
-	});
-	return ret;
-}
 
 async function face_api() {
 
+	let takePicture = () => {
+		exec("python python/cameracapture.py", (error, stdout, stderr) => {});
+	}
+	takePicture();
 	let img = await canvas.loadImage("./img.jpg");
 
-	let input_src = takePicture();
 	const MODELS_URL = './models';
 	Promise.all([
 		faceapi.nets.ssdMobilenetv1.loadFromDisk(MODELS_URL),
@@ -37,9 +32,9 @@ async function face_api() {
 	}
 }
 
+face_api()
 app.use(express.static('client'));
 
-face_api()
 let server = app.listen(8080, () => {
 	let host = server.address().address;
     let port = server.address().port;
@@ -47,5 +42,5 @@ let server = app.listen(8080, () => {
 	console.log(`Express App listening at http://localhost:${port}`);
 })
 
-//opn('http://localhost:8080');
+opn('http://localhost:8080');
 
