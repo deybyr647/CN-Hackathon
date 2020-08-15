@@ -24,7 +24,7 @@ async function face_api() {
 
 	function start(){
 		console.log("|");
-		faceapi.detectSingleFace(img).withFaceExpressions().then(x => console.log(x.expressions)).then(() => console.log("|"));
+		faceapi.detectSingleFace(img).withFaceExpressions().then(x => console.log(JSON.stringify(x.expressions))).then(() => console.log("|"));
 	}
 }
 

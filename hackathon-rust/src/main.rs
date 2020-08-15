@@ -1,18 +1,17 @@
 #![allow(dead_code)]
 
-
 fn call_node<S : AsRef<std::ffi::OsStr>>(script : S) -> Vec<u8> {
 	use std::process::Command;
 	if cfg!(target_os = "windows") {
 		Command::new("cmd")
-			.args(&["/C".as_ref(), "npm".as_ref(), script.as_ref()])
+			.args(&["/C".as_ref(), "npm run".as_ref(), script.as_ref()])
 			.output()
 			.expect("failed to execute process")
 			.stdout
 	} else {
 		Command::new("sh")
 			.arg("-c")
-			.arg("npm")
+			.arg("npm run")
 			.arg(script)
 			.output()
 			.expect("failed to execute process")
@@ -58,7 +57,8 @@ fn send_notif(title : &str, body : &str, icon : &str) {
 }
 
 fn get_face () -> String {
-	call_node_string("readFace")
+	let response = call_node_string("readFace");
+	String::from(response.split("|").nth(1).unwrap())
 }
 
 fn main() {
