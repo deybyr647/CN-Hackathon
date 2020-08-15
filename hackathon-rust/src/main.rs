@@ -56,12 +56,13 @@ fn send_notif(title : &str, body : &str, icon : &str) {
 		.unwrap();
 }
 
-fn get_pred () {
-	let response = call_node_string("readFace");
+fn get_pred() {
+	call_node_string("readFace");
 }
 
-
+fn run() {
+	let output = call_node_string("run_full");
+}
 
 fn main() {
-
 }
