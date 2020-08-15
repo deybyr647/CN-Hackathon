@@ -3,6 +3,7 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const faceapi = require('face-api.js');
 const canvas = require('canvas');
+const { json } = require("express");
 faceapi.env.monkeyPatch({ fetch: fetch });
 const { Canvas, Image, ImageData } = canvas
 faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
@@ -24,7 +25,6 @@ async function face_api() {
 	]).then(start).catch(err => console.log(err));
 
 	function start(){
-		//faceapi.detectSingleFace(img).withFaceExpressions().then(x => console.log("|" + JSON.stringify(x.expressions) + "|"));
 		faceapi.detectSingleFace(img).withFaceExpressions().then(data => {
 			console.log(data.expressions);
 			let jsonData = JSON.stringify(data.expressions);
