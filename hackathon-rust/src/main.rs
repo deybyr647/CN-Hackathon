@@ -58,7 +58,7 @@ fn send_notif(title : &str, body : &str, icon : &str) {
 }
 
 fn get_face () -> String {
-	call_node_string("faceReader.js")
+	call_node_string("readFace")
 }
 
 fn main() {
