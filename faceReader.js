@@ -12,7 +12,12 @@ async function face_api() {
 
 	let takePicture = () => {
 		exec("python python/cameracapture.py", (error, stdout, stderr) => {});
-	}
+	};
+	let get_app = () => {
+		let ret;
+		exec("python python/activeapp.py", (error, stdout, stderr) => { ret = stdout; });
+		return ret;
+	};
 	takePicture();
 	let img = await canvas.loadImage("./img.jpg");
 
@@ -26,8 +31,11 @@ async function face_api() {
 
 	function start(){
 		faceapi.detectSingleFace(img).withFaceExpressions().then(data => {
-			console.log(data.expressions);
-			let jsonData = data.expressions
+			let jsonData = {
+				"app"  : get_app(),
+				"data" : data.expressions,
+				"time" : new Date(),
+			};
 			console.log(jsonData);
 
 			fs.readFile('data.json', 'utf-8', (err, filedata) => {
