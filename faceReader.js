@@ -29,8 +29,19 @@ async function face_api() {
 			console.log(data.expressions);
 			let jsonData = JSON.stringify(data.expressions);
 			console.log(jsonData);
-			fs.writeFile('data.json', jsonData, 'utf8', (err) => {
-				console.error(err);
+
+			fs.readFile('data.json', 'utf-8', (err, filedata) => {
+				if(err) throw err;
+				let objectArray = JSON.parse(filedata);
+
+				objectArray.results.push(jsonData);
+
+				console.log(objectArray);
+
+				fs.writeFile('data.json', JSON.stringify(objectArray), 'utf-8', (err) => {
+					if(err) throw err;
+					console.log('Done');
+				})
 			})
 		});
 	}
