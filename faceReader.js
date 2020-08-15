@@ -25,13 +25,12 @@ async function face_api() {
 
 	function start(){
 		faceapi.detectSingleFace(img).withFaceExpressions().then(data => {
-
+			let expressions = data.expressions;
 			exec("python python/activeapp.py", (err, stdout, stdin) => {
-				app = stdout;
 
 				let jsonData = {
-					"app"  : app,
-					"data" : data.expressions,
+					"app"  : stdout,
+					"data" : expressions,
 					"time" : new Date(),
 				};
 
