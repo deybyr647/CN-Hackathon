@@ -1,0 +1,5 @@
+#Target files from Rust?
+hackathon-rust/target
+
+#Node modules, since we can just run npm install in the project directory to install required stuff
+node_modules

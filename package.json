@@ -1,0 +1,22 @@
+{
+  "name": "cn-hackathon",
+  "version": "0.1.0",
+  "description": "Code Next Hackathon Project dependencies",
+  "main": "/javascript/localServer.js",
+  "scripts": {
+    "test": "node javascript/localServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/I-graham/CN-Hackathon.git"
+  },
+  "author": "Ian, Deyby, Adam, Jesus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/I-graham/CN-Hackathon/issues"
+  },
+  "homepage": "https://github.com/I-graham/CN-Hackathon#readme",
+  "dependencies": {
+    "opn": "^6.0.0"
+  }
+}
