@@ -1,7 +1,8 @@
 const { exec } = require("child_process");
-let fetch = require('node-fetch');
-let faceapi = require('face-api.js');
-let canvas = require('canvas');
+const fs = require('fs');
+const fetch = require('node-fetch');
+const faceapi = require('face-api.js');
+const canvas = require('canvas');
 faceapi.env.monkeyPatch({ fetch: fetch });
 const { Canvas, Image, ImageData } = canvas
 faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
@@ -23,7 +24,13 @@ async function face_api() {
 	]).then(start).catch(err => console.log(err));
 
 	function start(){
-		faceapi.detectSingleFace(img).withFaceExpressions().then(x => console.log("|" + JSON.stringify(x.expressions) + "|"));
+		//faceapi.detectSingleFace(img).withFaceExpressions().then(x => console.log("|" + JSON.stringify(x.expressions) + "|"));
+		faceapi.detectSingleFace(img).withFaceExpressions().then(data => {
+			let jsonData = JSON.stringify(data.expressions);
+			fs.writeFile('data.json', jsonData, 'utf8', (err) => {
+				console.error(err);
+			})
+		});
 	}
 }
 
