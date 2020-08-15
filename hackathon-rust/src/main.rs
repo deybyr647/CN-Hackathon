@@ -35,8 +35,7 @@ fn send_notif(title : &str, body : &str, icon : &str) {
 }
 
 fn get_face () -> String {
-	let img_output = call_python_string("../python/cameracapture.py");
-	format!("data:image/jpg;base64,{}", img_output)
+	call_python_string("../python/cameracapture.py")
 }
 
 fn main() {
