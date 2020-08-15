@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+
+<head>
+    <title>Deyby Rodriguez</title>
+    <meta name='description' content="Deyby Rodriguez's Personal Website. Web Developer, Freelancer, Business and Finance enthusiast">
+    <meta name='keywords' content='Deyby, Antony, Rodriguez, deybyr647, Deybyr647,Freelancer, HTML, CSS, JavaScript, Python, React.js, Node.js'>
+    <meta name='author' content='Deyby Rodriguez'>
+    <meta name='robots' content='index, follow'>
+    <!--Open Graph-->
+    <meta property="og:title" content="Deyby Rodriguez">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://deybyr647.com/assets/images/opengraph.jpg">
+    <meta property='og:url' content='http://deybyr647.com'>
+    <meta property="og:description" content="Deyby Rodriguez's Personal Website. Web Developer, Freelancer, Business and Finance enthusiast">
+
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Open+Sans+Condensed:wght@300&family=Raleway:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='main.min.css'>
+    <link rel="icon" href='assets/images/favicon.png'>
+    <script defer src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script defer src='main.min.js'></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173609927-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173609927-1');
+    </script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+    <div class="floatingIcons">
+        <button id='darkModeToggle' title='Toggle Dark Mode'><i id='modeIcon' class="fas fa-sun"></i></button>
+        <button id='toTop' title='Back To Top'><i class="far fa-arrow-alt-circle-up"></i></button>
+    </div>
+
+    <div class='name-container'>
+        <div class='name'>
+            <h2>Deyby A. Rodriguez</h2>
+        </div>
+
+        <div class='adjective'>
+            <h2><span id='blinktext' class="blinking"></span></h2>
+        </div>
+    </div>
+
+    <div class='modal' id='resume-modal'>
+        <div class='modal-content-container'>
+            <span class='close' id='close'>&times;</span>
+            <embed class='modal-content' id="resume" src="assets/Resume.pdf" type="application/pdf">
+            <div id='resumeCaption'></div>
+        </div>
+    </div>
+
+    <div class='social-media-container'>
+        <div class='social-medias'>
+            <ul>
+                <li title='Google Calendar'><a target="_blank" rel="noopener noreferrer" href='https://calendar.google.com/calendar/selfsched?sstoken=UUpiNWNXcy1wQWtffGRlZmF1bHR8NGE0NzMwZDA2YTkyNDVjMjlkMWFhMDYyNjY1Njk3Y2E'><i
+                            class="far fa-calendar-plus"></i></a></li>
+                <li title='LinkedIn'><a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/deyby-rodriguez'><i class="fab fa-linkedin-in"></i></a></li>
+                <li title='GitHub'><a target="_blank" rel="noopener noreferrer" href='https://github.com/deybyr647'><i class="fab fa-github"></i></a></li>
+            </ul>
+
+            <ul>
+                <li title='Resume'><i id='resume-icon' class="far fa-file-alt"></i></li>
+                <li title='Email'><a target="_blank" rel="noopener noreferrer" href='mailto:deybyr647@gmail.com?Subject=Hey%20Deyby!'><i class="far fa-envelope"></i></a></li>
+                <li title='Portfolio'><a href='#portfolio-container'><i id='portfolio-icon' class="fa fa-suitcase"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class='about-skills-container'>
+        <div class='about'>
+            <h3>.about</h3>
+            <p>
+                My name is Deyby Antony Rodriguez and currently, I am a high school senior living in New York.
+                Technology, well to be more specific, Computer Science, has been an interest for quite
+                some time now. I aspire to one day become a web developer, in
+                Front-End, Back-End, or Full-Stack development. Aside from technology, I love the winter,
+                New York City, and I am also interested in business and finance.
+            </p>
+        </div>
+
+        <div class='skills'>
+            <h3>.skills</h3>
+            <p>Sooner or later I'll add on to this list, but for now, these are the technologies I'm currently most familiar with... <br> <br></p>
+
+            <div class='skills-text'>
+                <ul>
+                    <li><i title='JavaScript' class="fab fa-js-square"></i></li>
+                    <li><i title='Python' class="fab fa-python"></i></li>
+                </ul>
+
+                <ul>
+                    <li><i title='HTML' class="fab fa-html5"></i></li>
+                    <li><i title='CSS' class="fab fa-css3-alt"></i></li>
+                </ul>
+
+                <ul>
+                    <li><i title='React.js' class="fab fa-react"></i></li>
+                    <li><i title='Git' class="fab fa-git-alt"></i></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div id='portfolio-container'>
+        <div class='portfolio'>
+            <h3>.portfolio</h3>
+
+            <div class='project'>
+                <div class='project-title'>
+                    <h4><a target="_blank" rel="noopener noreferrer" href='https://deybyr647.com/RecycleNearMe/'>recyclenear.me</a></h4>
+                </div>
+                <img src='assets/images/Screenshot from 2020-08-12 22-40-26.jpg' alt='recyclenear.me'>
+                <p>The site, recyclenear.me aims to educate its users about recycling, ecology, and related topics. The site
+                also eases the process of recycling for its users by providing information on how to package recycle-able materials, and by using
+                user geolocation to show nearby recycling centers within a certain radius of the users location. Map shows recycling center information,
+                such as address and if the location is open/closed. Developed with HTML, CSS, JavaScript, Google Maps JavaScript API, Google Places API,
+                GNews API, NewsAPI, and in collaboration with Richard Brobbey & Elijah Cherisma.</p>
+            </div>
+
+            <div class='project'>
+                <div class='project-title'>
+                    <h4><a target="_blank" rel="noopener noreferrer" href='https://deybyr647.com/simplWeather'>simplWeather</a></h4>
+                </div>
+                <img src='assets/images/Screenshot from 2020-08-09 01-24-04.jpg' alt='simplWeather'>
+                <p>A simple site which shows current weather information for a given US zip code. Weather information provided by OpenWeatherMap API.
+                    Created with HTML, CSS, and JavaScript</p>
+            </div>
+
+            <div class='project'>
+                <div class='project-title'>
+                    <h4><a target="_blank" rel="noopener noreferrer" href='https://deybyr647.com/p5-snake.js/'>P5-Snake.js</a></h4>
+                </div>
+                <img src='assets/images/Screenshot from 2020-07-26 20-23-11.png' alt='P5-Snake.js'>
+                <p>Snake.js, but created using the P5.js library, for added features and difficulty</p>
+            </div>
+
+            <div class='project'>
+                <div class='project-title'>
+                    <h4><a target="_blank" rel="noopener noreferrer" href='https://github.com/deybyr647/NYC-Crime-Data-Across-The-Years'>NYC Crime Data Across The Years</a></h4>
+                </div>
+                <img src='assets/images/Screenshot from 2020-07-26 15-34-58.png' alt='Crime Data Across NYC'>
+                <p>Data Science project, which involved an analysis of criminal records spanning from 2010 up until 2019, from the City of New York.
+                    The analysis was conducted using Python and the Pandas library within a Google Colaboratory notebook.
+                </p>
+            </div>
+
+            <div class='project'>
+                <div class='project-title'>
+                    <h4><a target="_blank" rel="noopener noreferrer" href='https://deybyr647.com/CN-React-ToDoList/'>React To Do List</a></h4>
+                </div>
+                <img src='assets/images/Screenshot from 2020-07-26 20-31-41.png' alt='React To Do List'>
+                <p>Guided project, in which I created a To Do List app, along with some peers at a Google Code Next bootcamp using StackBlitz IDE, React.js and Bootstrap CSS</p>
+            </div>
+
+            <div class='project'>
+                <div class='project-title'>
+                    <h4><a target="_blank" rel="noopener noreferrer" href='https://deybyr647.com/snake.js'>Snake.js</a></h4>
+                </div>
+                <img src='assets/images/Screenshot from 2020-07-26 13-57-18.png' alt='Snake.js'>
+                <p>Remake of the popular game Snake, using HTML, CSS and JavaScript</p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
