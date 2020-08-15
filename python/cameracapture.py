@@ -11,4 +11,4 @@ for i in range(30):
 
 _, im_arr = cv2.imencode('.jpg', frame)
 im_b64 = base64.b64encode(im_arr)
-print(im_b64.decode('ascii'))
+print("data:image/jpg;base64," + im_b64.decode('ascii'))
