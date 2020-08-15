@@ -4,7 +4,8 @@
   "description": "Code Next Hackathon Project dependencies",
   "main": "/javascript/localServer.js",
   "scripts": {
-    "test": "node expressServer.js"
+    "host": "node expressServer.js",
+    "readFace": "node faceReader.js"
   },
   "repository": {
     "type": "git",
