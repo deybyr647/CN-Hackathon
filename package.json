@@ -4,7 +4,7 @@
   "description": "Code Next Hackathon Project dependencies",
   "main": "/javascript/localServer.js",
   "scripts": {
-    "test": "node javascript/localServer.js"
+    "test": "node expressLocalServer.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@tensorflow/tfjs-node": "^2.3.0",
     "canvas": "^2.6.1",
+    "express": "^4.17.1",
     "face-api.js": "^0.22.2",
     "opn": "^6.0.0"
   }
