@@ -29,11 +29,3 @@ async function face_api() {
 }
 
 face_api()
-
-
-
-let data = {
-    name: 'Name',
-    timestamps: [],
-
-}

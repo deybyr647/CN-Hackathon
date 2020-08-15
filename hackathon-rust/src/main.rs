@@ -1,23 +1,45 @@
 #![allow(dead_code)]
 
-use notify_rust::Notification;
+
+fn call_node<S : AsRef<std::ffi::OsStr>>(script : S) -> Vec<u8> {
+	use std::process::Command;
+	if cfg!(target_os = "windows") {
+		Command::new("cmd")
+			.args(&["/C".as_ref(), "npm".as_ref(), script.as_ref()])
+			.output()
+			.expect("failed to execute process")
+			.stdout
+	} else {
+		Command::new("sh")
+			.arg("-c")
+			.arg("npm")
+			.arg(script)
+			.output()
+			.expect("failed to execute process")
+			.stdout
+	}
+}
+
+fn call_node_string<S : AsRef<std::ffi::OsStr>>(script : S) -> String {
+	call_node(script).into_iter().map(|i| i as char).collect::<String>()
+}
 
 fn call_python<S : AsRef<std::ffi::OsStr>>(script : S) -> Vec<u8> {
 	use std::process::Command;
 	if cfg!(target_os = "windows") {
 		Command::new("cmd")
-				.args(&["/C".as_ref(), "python".as_ref(), script.as_ref()])
-				.output()
-				.expect("failed to execute process")
-				.stdout
+			.args(&["/C".as_ref(), "python".as_ref(), script.as_ref()])
+			.output()
+			.expect("failed to execute process")
+			.stdout
 	} else {
 		Command::new("sh")
-				.arg("-c")
-				.arg("python")
-				.arg(script)
-				.output()
-				.expect("failed to execute process")
-				.stdout
+			.arg("-c")
+			.arg("python")
+			.arg(script)
+			.output()
+			.expect("failed to execute process")
+			.stdout
 	}
 }
 
@@ -26,8 +48,9 @@ fn call_python_string<S : AsRef<std::ffi::OsStr>>(script : S) -> String {
 }
 
 fn send_notif(title : &str, body : &str, icon : &str) {
+	use notify_rust::Notification;
 	Notification::new()
-	    .summary(title)
+	.summary(title)
 	    .body(body)
 	    .icon(icon)
 		.show()
@@ -35,8 +58,9 @@ fn send_notif(title : &str, body : &str, icon : &str) {
 }
 
 fn get_face () -> String {
-	call_python_string("../python/cameracapture.py")
+	call_node_string("faceReader.js")
 }
 
 fn main() {
+	println!("{}", get_face());
 }
