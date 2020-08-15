@@ -65,11 +65,11 @@ fn run() {
 	let mut json_object = json::parse(input.as_str()).unwrap();
 	let results = &mut json_object["results"];
 
-	for _ in 0..results.len() - 30 {
+	for _ in 0..std::cmp::max(0, results.len() as isize - 30) {
 		results.array_remove(0);
 	}
 
-	for _ in 0..results.len() - 1 {
+	for _ in 0..std::cmp::max(0, results.len() as isize - 1) {
 		let result = results.array_remove(0);
 		if result == json::JsonValue::Null {
 			break;
@@ -86,6 +86,8 @@ fn run() {
 		if !map.contains_key(&app) {
 			map.insert(app, 0.0);
 		}
+
+
 
 	}
 }
