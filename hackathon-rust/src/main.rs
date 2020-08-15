@@ -61,7 +61,7 @@ fn get_pred() {
 }
 
 fn run() {
-	let output = call_node_string("run_full");
+	get_pred();
 }
 
 fn main() {
