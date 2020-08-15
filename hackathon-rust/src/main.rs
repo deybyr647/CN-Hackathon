@@ -61,9 +61,12 @@ fn get_pred() {
 }
 
 fn run() {
-	get_pred();
+	let input = std::fs::read_to_string("../data.json").unwrap();
+	let json_object = json::parse(input.as_str()).unwrap();
+	let results = &json_object["results"];
+	println!("{}", results);
 }
 
 fn main() {
-	send_notif("hi!", "hee");
+	run();
 }

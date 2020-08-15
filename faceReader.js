@@ -1,4 +1,4 @@
-const { exec } = require("child_process");
+const { exec, spawn } = require("child_process");
 const fs = require('fs');
 const fetch = require('node-fetch');
 const faceapi = require('face-api.js');
@@ -9,14 +9,8 @@ const { Canvas, Image, ImageData } = canvas
 faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
 
 async function face_api() {
-
 	let takePicture = () => {
 		exec("python python/cameracapture.py", (error, stdout, stderr) => {});
-	};
-	let get_app = () => {
-		let ret;
-		exec("python python/activeapp.py", (error, stdout, stderr) => { ret = stdout; });
-		return ret;
 	};
 	takePicture();
 	let img = await canvas.loadImage("./img.jpg");
@@ -31,26 +25,32 @@ async function face_api() {
 
 	function start(){
 		faceapi.detectSingleFace(img).withFaceExpressions().then(data => {
-			let jsonData = {
-				"app"  : get_app(),
-				"data" : data.expressions,
-				"time" : new Date(),
-			};
-			console.log(jsonData);
 
-			fs.readFile('data.json', 'utf-8', (err, filedata) => {
-				if(err) throw err;
-				let objectArray = JSON.parse(filedata);
+			exec("python python/activeapp.py", (err, stdout, stdin) => {
+				app = stdout;
 
-				objectArray.results.push(jsonData);
+				let jsonData = {
+					"app"  : app,
+					"data" : data.expressions,
+					"time" : new Date(),
+				};
 
-				console.log(objectArray);
+				console.log(jsonData);
 
-				fs.writeFile('data.json', JSON.stringify(objectArray), 'utf-8', (err) => {
+				fs.readFile('data.json', 'utf-8', (err, filedata) => {
 					if(err) throw err;
-					console.log('Done');
+					let objectArray = JSON.parse(filedata);
+
+					objectArray.results.push(jsonData);
+
+					console.log(objectArray);
+
+					fs.writeFile('data.json', JSON.stringify(objectArray), 'utf-8', (err) => {
+						if(err) throw err;
+						console.log('Done');
+					});
 				})
-			})
+			});
 		});
 	}
 }
