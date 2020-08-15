@@ -56,11 +56,30 @@ fn send_notif(title : &str, body : &str, icon : &str) {
 		.unwrap();
 }
 
-fn get_face () -> String {
+fn get_pred () -> String {
 	let response = call_node_string("readFace");
 	String::from(response.split("|").nth(1).unwrap())
 }
 
+struct timestep {
+	time : u64,
+	prediction : String,
+	active_app : String,
+}
+
+fn face_data() -> timestep {
+	use std::time::*;
+	let time = SystemTime::now().duration_since(SystemTime::UNIX_EPOCH).unwrap().as_secs();
+	let prediction = get_pred();
+	let active_app = call_python_string("../python/activeapp.py");
+
+	timestep {
+		time,
+		prediction,
+		active_app,
+	}
+}
+
 fn main() {
-	println!("{}", get_face());
+
 }
