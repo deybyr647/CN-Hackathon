@@ -15,6 +15,10 @@ body {
 
 .logo {
     margin-bottom: 5pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .mood {
@@ -23,7 +27,7 @@ body {
     color: white;
     display: inline-block;
     font-weight: bold;
-    margin-left: 23%;
+    
 }
 
 .cam {
@@ -32,12 +36,12 @@ body {
     color: #FFDA63;
     display: inline-block;
     font-weight: bold;
-    margin-left: 2%;
+    
 }
 
 .info {
     background-color: white;
-    height: 85%;
+    height: 98%;
     width: auto;
     display: grid;
     grid-template: 1fr 1fr 1fr 2.5fr / 1fr;
@@ -63,6 +67,8 @@ body {
 .emotion h1:hover {
     background: #ffd242;
 }
+
+
 
 .app h1 {
     margin-left: 15%;
@@ -110,6 +116,22 @@ body {
     background: #ffd242;
 }
 
+.advance h1{
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    background-color: #FFDA63;
+    border-radius: 8pt;
+    box-shadow: 0 0 5pt 3pt rgba(0, 0, 0, 0.1);
+    transition: background 0.3s linear;
+}
+
+.advance h1:hover {
+    background: #ffd242;
+}
+
 .status {
     font-size: 26pt;
     margin-top: 10pt;
@@ -119,4 +141,7 @@ body {
     font-size: 13pt;
     margin: 10pt;
     margin-top: 0;
+}
+.nounder {
+  text-decoration: none;
 }
