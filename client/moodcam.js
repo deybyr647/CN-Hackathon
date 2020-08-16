@@ -1,5 +1,5 @@
-const moodHeading = document.querySelector('#mood');
-const confidenceHeading = document.querySelector('#confidence');
+const moodHeading = document.querySelector('#emotion');
+const confidenceHeading = document.querySelector('#prop');
 const appHeading = document.querySelector('#app');
 
 //Capitalizes first letter of passed string
@@ -44,6 +44,7 @@ let getMood = (result) => {
 
 let objArr = data.results;
 let mood = getMood(objArr[objArr.length - 1]);
-moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
-confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
-appHeading.innerHTML = `Currently Using: ${mood.app}`;
+console.log(mood);
+moodHeading.innerHTML = `<h1>Mood : ${capitalizeStr(mood.mood)}</h1>`;
+confidenceHeading.innerHTML = `<h1>${Math.trunc(mood.confidence * 100)}% confident of results</h1>`;
+appHeading.innerHTML = `<h1>Currently Using: ${mood.app}</h1>`;
