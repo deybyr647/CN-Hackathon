@@ -95,7 +95,7 @@ fn run() {
 	if map.contains_key(&app) {
 		let score = map.get(&app).unwrap();
 		println!("score : {}", *score);
-		if *score < -0.0 {
+		if *score < -0.0 && result["data"]["neutral"].as_f64().unwrap() < 0.9 {
 			send_notif();
 		}
 	}
