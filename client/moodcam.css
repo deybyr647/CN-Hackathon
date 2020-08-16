@@ -62,18 +62,6 @@ body {
     display: none;
 }
 
-.table {
-	background-color: white;
-	width: auto;
-	height : auto;
-	margin-bottom: 20pt;
-	display: grid;
-	grid-row-gap: 8pt;
-	border-radius: 20pt;
-	padding: 20pt;
-	box-shadow: 0 0 30pt 5pt rgba(0, 0, 0, 0.25);
-}
-
 .emotion h1 {
 	margin-left: 15%;
 	margin-right: 15%;
