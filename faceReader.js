@@ -32,7 +32,7 @@ async function face_api() {
 					"time" : new Date(),
 				};
 
-				fs.readFile('client/result.json', 'utf-8', (err, filedata) => {
+				fs.readFile('client/results.json', 'utf-8', (err, filedata) => {
 					if(err) throw err;
 					let objectArray = JSON.parse(filedata);
 
