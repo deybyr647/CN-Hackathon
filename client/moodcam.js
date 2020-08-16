@@ -13,29 +13,25 @@ let capitalizeStr = (str) => {
 }
 
 //Gets mood key with highest value
-let getMood = (arr) => {
+let getMood = (result) => {
     let finalMoodResult;
     let finalMoodConfidence;
-    let appResult;
+	let appResult = result.app;
 
-    arr.forEach(result => {
-        Object.keys(result.data).reduce((a, b) => {
-            if(result.data[a] > result.data[b]){
-                console.log(result.data[a], result.data[b])
-
-                finalMoodResult = a;
-                finalMoodConfidence = result.data[`${finalMoodResult}`];
-            }
-        })
-
-        if(result.app == '' || result.app == undefined || result.app == null){
-            result.app == 'Unknown/Unavailable App';
-            appResult = result.app;
+    Object.keys(result.data).reduce((a, b) => {
+        if(result.data[a] > result.data[b]){
+            finalMoodResult = a;
+            finalMoodConfidence = result.data[`${finalMoodResult}`];
         }
-
-        //finalMoodConfidence = result.data[`${finalMoodResult}`];
-        //console.log('object result data: \n', result.data);
     })
+
+    if(result.app == '' || result.app == undefined || result.app == null){
+        result.app == 'Unknown/Unavailable App';
+        appResult = result.app;
+    }
+
+    //finalMoodConfidence = result.data[`${finalMoodResult}`];
+    //console.log('object result data: \n', result.data);
 
     //console.log('Final Mood Result: ', finalMoodResult);
     //console.log('Final Mood Confidence: ', finalMoodConfidence);
@@ -47,7 +43,7 @@ let getMood = (arr) => {
 //Fetches data file into the browser
 
 let objArr = data.results;
-let mood = getMood(objArr);
+let mood = getMood(objArr[objArr.length - 1]);
 moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
 confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
 appHeading.innerHTML = `Currently Using: ${mood.app}`;
