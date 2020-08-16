@@ -1,0 +1,147 @@
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #6388FF;
+    font-family: 'Cabin';
+}
+
+body {
+    height: 80%;
+    width: 60%;
+    margin: auto;
+    padding: 5pt;
+    margin-top: 5%;
+}
+
+.logo {
+    margin-bottom: 5pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mood {
+    font-family: 'Cabin';
+    font-size: 60pt;
+    color: white;
+    display: inline-block;
+    font-weight: bold;
+    
+}
+
+.cam {
+    font-family: 'Cabin';
+    font-size: 60pt;
+    color: #FFDA63;
+    display: inline-block;
+    font-weight: bold;
+    
+}
+
+.info {
+    background-color: white;
+    height: 180%;
+    width: auto;
+    display: grid;
+    grid-template: 1fr 1fr 1fr 2.5fr / 1fr;
+    grid-row-gap: 8pt;
+    border-radius: 20pt;
+    padding: 20pt;
+    box-shadow: 0 0 30pt 5pt rgba(0, 0, 0, 0.25);
+    
+}
+
+.emotion h1 {
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    background-color: #FFDA63;
+    border-radius: 8pt;
+    box-shadow: 0 0 5pt 3pt rgba(0, 0, 0, 0.1);
+    transition: background 0.3s linear;
+}
+
+.emotion h1:hover {
+    background: #ffd242;
+}
+
+
+.prop h1 {
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    background-color: #FFDA63;
+    border-radius: 8pt;
+    box-shadow: 0 0 5pt 3pt rgba(0, 0, 0, 0.1);
+    transition: background 0.3s linear;
+}
+
+.pr h1:hover {
+    background: #ffd242;
+}
+
+.time h1 {
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    background-color: #FFDA63;
+    border-radius: 8pt;
+    box-shadow: 0 0 5pt 3pt rgba(0, 0, 0, 0.1);
+    transition: background 0.3s linear;
+}
+
+.time h1:hover {
+    background: #ffd242;
+}
+
+.text {
+    text-align: center;
+    padding-top: 5pt;
+    padding-bottom: 30pt;
+    background-color: #FFDA63;
+    border-radius: 8pt;
+    box-shadow: 0 0 5pt 3pt rgba(0, 0, 0, 0.1);
+    transition: background 0.3s linear;
+}
+
+.text h3:hover {
+    background: #ffd242;
+}
+
+.advance h1{
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    background-color: #FFDA63;
+    border-radius: 8pt;
+    box-shadow: 0 0 5pt 3pt rgba(0, 0, 0, 0.1);
+    transition: background 0.3s linear;
+}
+
+.advance h1:hover {
+    background: #ffd242;
+}
+
+.status {
+    font-size: 26pt;
+    padding-bottom: 20px;
+    
+}
+
+.advice {
+    font-size: 13pt;
+    margin: 10pt;
+    margin-top: 0;
+}
+.nounder {
+  text-decoration: none;
+}
