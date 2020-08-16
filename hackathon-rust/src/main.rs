@@ -61,7 +61,7 @@ fn get_pred() {
 
 fn run() {
 	let mut map = std::collections::HashMap::<String, f64>::new();
-	let input = std::fs::read_to_string("../data.json").unwrap();
+	let input = std::fs::read_to_string("../client/results.json").unwrap();
 	let mut json_object = json::parse(input.as_str()).unwrap();
 	let results = &mut json_object["results"];
 
