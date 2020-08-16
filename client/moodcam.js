@@ -44,7 +44,7 @@ let getData = (file) => {
             let objArr = data.results;
             let mood = getMood(objArr);
             moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
-            confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
+            confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confidence in results`;
             appHeading.innerHTML = `Currently Using: ${mood.app}`;
         })
         .catch(err => {
