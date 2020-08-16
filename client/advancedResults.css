@@ -41,7 +41,7 @@ body {
 
 .info {
     background-color: white;
-    height: 180%;
+    height: 190%;
     width: auto;
     display: grid;
     grid-template: 1fr 1fr 1fr 2.5fr / 1fr;
