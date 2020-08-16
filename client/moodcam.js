@@ -17,26 +17,31 @@ let getMood = (arr) => {
     let finalMoodResult;
     let finalMoodConfidence;
     let appResult;
+
     arr.forEach(result => {
         Object.keys(result.data).reduce((a, b) => {
             if(result.data[a] > result.data[b]){
+                console.log(result.data[a], result.data[b])
+
                 finalMoodResult = a;
-                appResult = result.app;
+                finalMoodConfidence = result.data[`${finalMoodResult}`];
             }
         })
-        finalMoodConfidence = result.data[`${finalMoodResult}`];
-        console.log('object result data: \n', result.data);
+
+        if(result.app == '' || result.app == undefined || result.app == null){
+            result.app == 'Unknown/Unavailable App';
+            appResult = result.app;
+        }
+
+        //finalMoodConfidence = result.data[`${finalMoodResult}`];
+        //console.log('object result data: \n', result.data);
     })
 
-    console.log('Final Mood Result: ', finalMoodResult);
-    console.log('Final Mood Confidence: ', finalMoodConfidence);
-    console.log('Final App Result: ', appResult);
+    //console.log('Final Mood Result: ', finalMoodResult);
+    //console.log('Final Mood Confidence: ', finalMoodConfidence);
+    //console.log('Final App Result: ', appResult);
     
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
-}
-
-let displayMoodData = () => {
-
 }
 
 //Fetches data file into the browser
@@ -48,8 +53,9 @@ let getData = (file) => {
             let mood = getMood(objArr);
             moodHeading.innerHTML = `Mood: ${capitalizeStr(mood.mood)}`;
             //confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
+            moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
+            confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
             appHeading.innerHTML = `Currently Using: ${mood.app}`;
-
         })
         .catch(err => {
             err ? console.error(err) : err = null;
