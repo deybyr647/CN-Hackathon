@@ -21,8 +21,6 @@ let getMood = (arr) => {
     arr.forEach(result => {
         Object.keys(result.data).reduce((a, b) => {
             if(result.data[a] > result.data[b]){
-                console.log(result.data[a], result.data[b])
-
                 finalMoodResult = a;
                 appResult = result.app;
                 finalMoodConfidence = result.data[`${finalMoodResult}`];
@@ -34,10 +32,6 @@ let getMood = (arr) => {
             appResult = result.app;
         }
     })
-
-    console.log('Final Mood Result: ', finalMoodResult);
-    console.log('Final Mood Confidence: ', finalMoodConfidence);
-    console.log('Final App Result: ', appResult);
 
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }
