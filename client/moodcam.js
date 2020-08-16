@@ -25,12 +25,12 @@ let getMood = (arr) => {
             }
         })
         finalMoodConfidence = result.data[`${finalMoodResult}`];
-        console.log('object result data: \n', result.data);
+        //console.log('object result data: \n', result.data);
     })
 
-    console.log('Final Mood Result: ', finalMoodResult);
-    console.log('Final Mood Confidence: ', finalMoodConfidence);
-    console.log('Final App Result: ', appResult);
+    //console.log('Final Mood Result: ', finalMoodResult);
+    //console.log('Final Mood Confidence: ', finalMoodConfidence);
+    //console.log('Final App Result: ', appResult);
     
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }
@@ -47,9 +47,8 @@ let getData = (file) => {
             let objArr = data.results;
             let mood = getMood(objArr);
             moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
-            //confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
+            confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
             appHeading.innerHTML = `Currently Using: ${mood.app}`;
-
         })
         .catch(err => {
             err ? console.error(err) : err = null;
