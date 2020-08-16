@@ -40,24 +40,14 @@ let getMood = (arr) => {
     //console.log('Final Mood Result: ', finalMoodResult);
     //console.log('Final Mood Confidence: ', finalMoodConfidence);
     //console.log('Final App Result: ', appResult);
-    
+
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }
 
 //Fetches data file into the browser
-let getData = (file) => {
-    fetch(file)
-        .then(response => response.json())
-        .then(data => {
-            let objArr = data.results;
-            let mood = getMood(objArr);
-            moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
-            confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
-            appHeading.innerHTML = `Currently Using: ${mood.app}`;
-        })
-        .catch(err => {
-            err ? console.error(err) : err = null;
-        })
-}
 
-getData('results.json');
+let objArr = data.results;
+let mood = getMood(objArr);
+moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
+confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
+appHeading.innerHTML = `Currently Using: ${mood.app}`;
