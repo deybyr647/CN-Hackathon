@@ -3,7 +3,6 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const faceapi = require('face-api.js');
 const canvas = require('canvas');
-const { json } = require("express");
 faceapi.env.monkeyPatch({ fetch: fetch });
 const { Canvas, Image, ImageData } = canvas
 faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
@@ -39,9 +38,9 @@ async function face_api() {
 
 					objectArray.results.push(jsonData);
 
-					fs.writeFile('data.json', JSON.stringify(objectArray), 'utf-8', (err) => {
+					fs.writeFile('client/results.json', JSON.stringify(objectArray), 'utf-8', (err) => {
 						if(err) throw err;
-						console.log('Done');
+						console.log('Done!');
 					});
 				})
 			});

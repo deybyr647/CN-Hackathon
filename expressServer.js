@@ -12,4 +12,3 @@ let server = app.listen(8080, () => {
 })
 
 opn('http://localhost:8080');
-
