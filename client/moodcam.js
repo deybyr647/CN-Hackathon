@@ -1,5 +1,6 @@
 const moodHeading = document.querySelector('#mood');
-let confidenceHeading = document.querySelector('#confidence');
+const confidenceHeading = document.querySelector('#confidence');
+const appHeading = document.querySelector('#app');
 
 //Capitalizes first letter of passed string
 let capitalizeStr = (str) => {
@@ -15,10 +16,12 @@ let capitalizeStr = (str) => {
 let getMood = (arr) => {
     let finalMoodResult;
     let finalMoodConfidence;
+    let appResult;
     arr.forEach(result => {
         Object.keys(result.data).reduce((a, b) => {
             if(result.data[a] > result.data[b]){
                 finalMoodResult = a;
+                appResult = result.app;
             }
         })
         finalMoodConfidence = result.data[`${finalMoodResult}`];
@@ -27,8 +30,9 @@ let getMood = (arr) => {
 
     console.log('Final Mood Result: ', finalMoodResult);
     console.log('Final Mood Confidence: ', finalMoodConfidence);
+    console.log('Final App Result: ', appResult);
     
-    return {mood: finalMoodResult, confidence: finalMoodConfidence};
+    return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }
 
 let displayMoodData = () => {
@@ -43,7 +47,8 @@ let getData = (file) => {
             let objArr = data.results;
             let mood = getMood(objArr);
             moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
-            confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
+            //confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
+            appHeading.innerHTML = `Currently Using: ${mood.app}`;
 
         })
         .catch(err => {
