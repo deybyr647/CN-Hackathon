@@ -46,12 +46,8 @@ fn call_python_string<S : AsRef<std::ffi::OsStr>>(script : S) -> String {
 	call_python(script).into_iter().map(|i| i as char).collect::<String>()
 }
 
-fn send_notif(title : &str, body : &str) {
-	use notify_rust::Notification;
-	Notification::new()
-	    .summary(title)
-	    .body(body)
-	    .show().unwrap();
+fn send_notif() {
+	call_python("../python/notif.py");
 }
 
 fn get_pred() {
@@ -100,7 +96,7 @@ fn run() {
 		let score = map.get(&app).unwrap();
 		println!("score : {}", *score);
 		if *score < -0.0 {
-			send_notif("You seem upset.", format!("Try taking a break from using {}, ", app).as_str());
+			send_notif();
 		}
 	}
 }
@@ -109,6 +105,6 @@ fn main() {
 	loop {
 		call_node("readFace");
 		run();
-		std::thread::sleep(std::time::Duration::from_secs(10));
+		std::thread::sleep(std::time::Duration::from_secs(1));
 	}
 }
