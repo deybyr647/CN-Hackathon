@@ -17,14 +17,23 @@ let getMood = (arr) => {
     let finalMoodResult;
     let finalMoodConfidence;
     let appResult;
+
     arr.forEach(result => {
         Object.keys(result.data).reduce((a, b) => {
             if(result.data[a] > result.data[b]){
+                console.log(result.data[a], result.data[b])
+
                 finalMoodResult = a;
-                appResult = result.app;
+                finalMoodConfidence = result.data[`${finalMoodResult}`];
             }
         })
-        finalMoodConfidence = result.data[`${finalMoodResult}`];
+
+        if(result.app == '' || result.app == undefined || result.app == null){
+            result.app == 'Unknown/Unavailable App';
+            appResult = result.app;
+        }
+
+        //finalMoodConfidence = result.data[`${finalMoodResult}`];
         //console.log('object result data: \n', result.data);
     })
 
@@ -33,10 +42,6 @@ let getMood = (arr) => {
     //console.log('Final App Result: ', appResult);
     
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
-}
-
-let displayMoodData = () => {
-
 }
 
 //Fetches data file into the browser
