@@ -6,14 +6,13 @@
   "scripts": {
     "host": "node expressServer.js",
 	  "readFace": "node faceReader.js",
-    "run_full": "node full_app.js",
-    "runAll": "node faceReader.js & node expressServer.js"
+    "runFull": "node full_app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/I-graham/CN-Hackathon.git"
   },
-  "author": "Ian, Deyby, Adam, Jesus",
+  "author": "Deyby Rodriguez <deybyr647@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/I-graham/CN-Hackathon/issues"

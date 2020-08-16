@@ -40,7 +40,7 @@ async function face_api() {
 
 					fs.writeFile('client/results.json', JSON.stringify(objectArray), 'utf-8', (err) => {
 						if(err) throw err;
-						console.log('Done');
+						console.log('Done!');
 					});
 				})
 			});
