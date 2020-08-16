@@ -41,22 +41,6 @@ let getMood = (result) => {
 }
 
 //Fetches data file into the browser
-let getData = (file) => {
-    fetch(file)
-        .then(response => response.json())
-        .then(data => {
-            let objArr = data.results;
-            let mood = getMood(objArr);
-            moodHeading.innerHTML = `Mood: ${capitalizeStr(mood.mood)}`;
-            //confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
-            moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
-            confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
-            appHeading.innerHTML = `Currently Using: ${mood.app}`;
-        })
-        .catch(err => {
-            err ? console.error(err) : err = null;
-        })
-}
 
 let objArr = data.results;
 let mood = getMood(objArr[objArr.length - 1]);
