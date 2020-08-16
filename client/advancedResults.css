@@ -12,7 +12,7 @@ body {
     padding: 5pt;
     margin-top: 5%;
 }
-
+    
 .logo {
     margin-bottom: 5pt;
     display: flex;
@@ -35,7 +35,6 @@ body {
     color: #FFDA63;
     display: inline-block;
     font-weight: bold;
-    
 }
 
 .info {
@@ -116,7 +115,7 @@ body {
     transition: background 0.3s linear;
 }
 
-.text h3:hover {
+.text:hover {
     background: #ffd242;
 }
 
@@ -136,13 +135,15 @@ body {
 
 .status {
     font-size: 26pt;
-    padding-bottom: 20px;
+    padding-bottom: 20pt;
 }
 
-.advice {
-    font-size: 13pt;
-    margin: 10pt;
-    margin-top: 0;
+.prop h1 {
+    transition: background 0.3s linear;
+}
+
+.prop h1:hover {
+    background: #ffd242;
 }
 
 .nounder {
