@@ -12,30 +12,26 @@ let capitalizeStr = (str) => {
     return splitStr.join(' ');
 }
 
-//Gets mood key with highest value
-let getMood = (result) => {
+//Gets mood key with highest confidence value
+let getMood = (arr) => {
     let finalMoodResult;
     let finalMoodConfidence;
-	let appResult = result.app;
+    let appResult;
 
-    Object.keys(result.data).reduce((a, b) => {
-        if(result.data[a] > result.data[b]){
-            finalMoodResult = a;
-            finalMoodConfidence = result.data[`${finalMoodResult}`];
+    arr.forEach(result => {
+        Object.keys(result.data).reduce((a, b) => {
+            if(result.data[a] > result.data[b]){
+                finalMoodResult = a;
+                appResult = result.app;
+                finalMoodConfidence = result.data[`${finalMoodResult}`];
+            }
+        })
+
+        if(result.app == '' || result.app == undefined || result.app == null){
+            result.app == 'Unknown/Unavailable App';
+            appResult = result.app;
         }
     })
-
-    if(result.app == '' || result.app == undefined || result.app == null){
-        result.app == 'Unknown/Unavailable App';
-        appResult = result.app;
-    }
-
-    //finalMoodConfidence = result.data[`${finalMoodResult}`];
-    //console.log('object result data: \n', result.data);
-
-    //console.log('Final Mood Result: ', finalMoodResult);
-    //console.log('Final Mood Confidence: ', finalMoodConfidence);
-    //console.log('Final App Result: ', appResult);
 
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }

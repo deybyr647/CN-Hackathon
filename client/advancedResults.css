@@ -40,7 +40,7 @@ body {
 
 .info {
     background-color: white;
-    height: 170%;
+    height: 147%;
     margin-bottom: 20pt;
     width: auto;
     display: grid;
@@ -132,7 +132,6 @@ body {
 
 .advance h1:hover {
     color: #2b5efc;
-;
 }
 
 .status {
