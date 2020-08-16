@@ -27,7 +27,6 @@ body {
     color: white;
     display: inline-block;
     font-weight: bold;
-    
 }
 
 .cam {
@@ -41,7 +40,7 @@ body {
 
 .info {
     background-color: white;
-    height: 130%;
+    height: 170%;
     margin-bottom: 20pt;
     width: auto;
     display: grid;

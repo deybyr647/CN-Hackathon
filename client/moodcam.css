@@ -23,6 +23,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+    margin-top: -50pt;
 }
 
 .mood {
@@ -31,7 +32,6 @@ body {
 	color: white;
 	display: inline-block;
 	font-weight: bold;
-
 }
 
 .cam {
@@ -59,16 +59,7 @@ body {
 }
 
 .info::-webkit-scrollbar {
-  display: none;
-	background-color: white;
-	height: 125%;
-	width: auto;
-	display: grid;
-	grid-template: 1fr 1fr 1fr 2.5fr / 1fr;
-	grid-row-gap: 8pt;
-	border-radius: 20pt;
-	padding: 20pt;
-	box-shadow: 0 0 30pt 5pt rgba(0, 0, 0, 0.25);
+    display: none;
 }
 
 .table {
@@ -174,20 +165,7 @@ body {
 }
 
 .advance h1:hover {
-    color: #2b5efc;
-	margin-left: 15%;
-	margin-right: 15%;
-	text-align: center;
-	padding-top: 5pt;
-	padding-bottom: 5pt;
-	background-color: #FFDA63;
-	border-radius: 8pt;
-	box-shadow: 0 0 5pt 3pt rgba(0, 0, 0, 0.1);
-	transition: background 0.3s linear;
-}
-
-.advance h1:hover {
-	background: #ffd242;
+	color: #2d5ffc;
 }
 
 .status {
