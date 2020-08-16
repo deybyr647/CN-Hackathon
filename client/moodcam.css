@@ -6,6 +6,10 @@ html {
 }
 
 body {
+    height: 80%;
+    width: 60%;
+    margin: auto;
+    padding: 5pt;
 	height: 80%;
 	width: 60%;
 	margin: auto;
@@ -40,6 +44,22 @@ body {
 }
 
 .info {
+    background-color: white;
+    height: 95%;
+    width: auto;
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1.5fr / 1fr;
+    grid-row-gap: 8pt;
+    border-radius: 20pt;
+    padding: 20pt;
+    box-shadow: 0 0 30pt 5pt rgba(0, 0, 0, 0.25);
+    margin-bottom: 20pt;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.info::-webkit-scrollbar {
+  display: none;
 	background-color: white;
 	height: 125%;
 	width: auto;
@@ -143,6 +163,18 @@ body {
 }
 
 .advance h1{
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    margin-top: 5pt;
+    padding-bottom: 5pt;
+    transition: color 0.3s linear;
+    color: #4873fa;
+    font-size: 20pt;
+}
+
+.advance h1:hover {
+    color: #2b5efc;
 	margin-left: 15%;
 	margin-right: 15%;
 	text-align: center;
