@@ -1,5 +1,6 @@
 const moodHeading = document.querySelector('#mood');
 
+//Capitalizes first letter of passed string
 let capitalizeStr = (str) => {
     let splitStr = str.toLowerCase().split(' ');
     for(let l = 0; l < splitStr.length; l++){
@@ -9,6 +10,7 @@ let capitalizeStr = (str) => {
     return splitStr.join(' ');
 }
 
+//Gets mood key with highest value
 let getMood = (arr) => {
     let finalMoodResult;
     arr.forEach(result => {
@@ -17,7 +19,7 @@ let getMood = (arr) => {
                 finalMoodResult = a;
             }
         })
-        console.log(result.data);
+        console.log('object result data: \n', result.data);
     })
 
     console.log('Final Mood Result: ', finalMoodResult);
@@ -34,7 +36,6 @@ let getData = (file) => {
         .then(response => response.json())
         .then(data => {
             let objArr = data.results;
-            getMood(objArr);
             let mood = getMood(objArr);
             moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood)}`;
         })
