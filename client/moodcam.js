@@ -1,5 +1,5 @@
-const moodHeading = document.querySelector('#mood');
-const confidenceHeading = document.querySelector('#confidence');
+const moodHeading = document.querySelector('#emotion');
+const confidenceHeading = document.querySelector('#prop');
 const appHeading = document.querySelector('#app');
 
 //Capitalizes first letter of passed string
@@ -13,7 +13,7 @@ let capitalizeStr = (str) => {
 }
 
 //Gets mood key with highest confidence value
-let getMood = (arr) => {
+let getMood = (result) => {
     let finalMoodResult;
     let finalMoodConfidence;
     let appResult;
@@ -46,6 +46,12 @@ let getMood = (arr) => {
             result.app == 'Unknown/Unavailable App';
             appResult = result.app;
         }*/
+
+    if(result.app == '' || result.app == undefined || result.app == null){
+        result.app == 'Unknown/Unavailable App';
+        appResult = result.app;
+    }
+
 
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }
