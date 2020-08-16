@@ -46,7 +46,7 @@ let getData = (file) => {
         .then(data => {
             let objArr = data.results;
             let mood = getMood(objArr);
-            moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
+            moodHeading.innerHTML = `Mood: ${capitalizeStr(mood.mood)}`;
             //confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
             appHeading.innerHTML = `Currently Using: ${mood.app}`;
 
