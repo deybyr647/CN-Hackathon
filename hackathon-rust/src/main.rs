@@ -49,10 +49,9 @@ fn call_python_string<S : AsRef<std::ffi::OsStr>>(script : S) -> String {
 fn send_notif(title : &str, body : &str) {
 	use notify_rust::Notification;
 	Notification::new()
-	.summary(title)
+	    .summary(title)
 	    .body(body)
-		.show()
-		.unwrap();
+	    .show().unwrap();
 }
 
 fn get_pred() {
@@ -99,8 +98,9 @@ fn run() {
 	let app = format!("{}", result["app"]);
 	if map.contains_key(&app) {
 		let score = map.get(&app).unwrap();
+		println!("score : {}", *score);
 		if *score < -0.0 {
-			send_notif("bad", "uh oh");
+			send_notif("You seem upset.", format!("Try taking a break from using {}, ", app).as_str());
 		}
 	}
 }
