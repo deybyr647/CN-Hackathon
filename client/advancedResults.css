@@ -127,6 +127,7 @@ body {
     padding-bottom: 5pt;
     color: #4873fa;
     transition: color 0.3s linear;
+    font-size: 20pt;
 }
 
 .advance h1:hover {
