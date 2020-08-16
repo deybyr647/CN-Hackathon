@@ -40,7 +40,7 @@ let getMood = (arr) => {
     //console.log('Final Mood Result: ', finalMoodResult);
     //console.log('Final Mood Confidence: ', finalMoodConfidence);
     //console.log('Final App Result: ', appResult);
-    
+
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }
 
@@ -62,4 +62,8 @@ let getData = (file) => {
         })
 }
 
-getData('results.json');
+let objArr = data.results;
+let mood = getMood(objArr);
+moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
+confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confident of results`;
+appHeading.innerHTML = `Currently Using: ${mood.app}`;
