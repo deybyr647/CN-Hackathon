@@ -112,10 +112,19 @@ fn run() {
 	}
 }
 
+fn create_includer() {
+	use std::io::Write;
+	let input = std::fs::read_to_string("../client/results.json").unwrap();
+	let output = format!("data = {};", input);
+	let mut includer_file = std::fs::File::create("../client/include_results.json").unwrap();
+	includer_file.write(output.as_bytes()).unwrap();
+}
+
 fn main() {
 	loop {
 		call_node("readFace");
 		run();
+		create_includer();
 		std::thread::sleep(std::time::Duration::from_secs(1));
 	}
 }
