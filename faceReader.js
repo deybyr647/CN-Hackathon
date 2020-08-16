@@ -43,6 +43,11 @@ async function face_api() {
 						console.log('Done!');
 					});
 				})
+
+				fs.copyFile('./img.jpg', 'client/img.jpg', (err) => {
+					if(err) console.error(err);
+					else console.log('Image copied successfully');
+				})
 			});
 		});
 	}
