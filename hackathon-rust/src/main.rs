@@ -115,7 +115,7 @@ fn run() {
 fn create_includer() {
 	use std::io::Write;
 	let input = std::fs::read_to_string("../client/results.json").unwrap();
-	let output = format!("data = {};", input);
+	let output = format!("var data = {};", input);
 	let mut includer_file = std::fs::File::create("../client/include_results.json").unwrap();
 	includer_file.write(output.as_bytes()).unwrap();
 }
