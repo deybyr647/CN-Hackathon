@@ -93,9 +93,20 @@ fn run() {
 	let result = results.array_remove(0);
 	let app = format!("{}", result["app"]);
 	if map.contains_key(&app) {
-		let score = map.get(&app).unwrap();
-		println!("score : {}", *score);
-		if *score < -0.0 && result["data"]["neutral"].as_f64().unwrap() < 0.9 {
+		let happy = result["data"]["happy"].as_f64().unwrap();
+		let sad = result["data"]["sad"].as_f64().unwrap();
+
+		let disgusted = result["data"]["disgusted"].as_f64().unwrap();
+		let angry = result["data"]["angry"].as_f64().unwrap();
+		let fearful = result["data"]["fearful"].as_f64().unwrap();
+
+		let score_mut = map.get_mut(&app).unwrap();
+
+		*score_mut += happy;
+		*score_mut -= sad + angry + fearful + disgusted;
+
+		println!("score : {}", *score_mut);
+		if *score_mut < -0.0 && result["data"]["neutral"].as_f64().unwrap() < 0.95 {
 			send_notif();
 		}
 	}
