@@ -1,5 +1,5 @@
 let readJSON = (file) => {
-    fetch(`${file}`)
+    fetch(file)
     .then(response => {
         return response.json()
     })

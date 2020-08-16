@@ -5,8 +5,9 @@
   "main": "/javascript/localServer.js",
   "scripts": {
     "host": "node expressServer.js",
-	"readFace": "node faceReader.js",
-	"run_full": "node full_app.js"
+	  "readFace": "node faceReader.js",
+    "run_full": "node full_app.js",
+    "runAll": "node faceReader.js & node expressServer.js"
   },
   "repository": {
     "type": "git",
