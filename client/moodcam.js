@@ -13,25 +13,24 @@ let capitalizeStr = (str) => {
 }
 
 //Gets mood key with highest confidence value
-let getMood = (arr) => {
+let getMood = (result) => {
     let finalMoodResult;
     let finalMoodConfidence;
     let appResult;
 
-    arr.forEach(result => {
-        Object.keys(result.data).reduce((a, b) => {
-            if(result.data[a] > result.data[b]){
-                finalMoodResult = a;
-                appResult = result.app;
-                finalMoodConfidence = result.data[`${finalMoodResult}`];
-            }
-        })
-
-        if(result.app == '' || result.app == undefined || result.app == null){
-            result.app == 'Unknown/Unavailable App';
+    Object.keys(result.data).reduce((a, b) => {
+        if(result.data[a] > result.data[b]){
+            finalMoodResult = a;
             appResult = result.app;
+            finalMoodConfidence = result.data[`${finalMoodResult}`];
         }
     })
+
+    if(result.app == '' || result.app == undefined || result.app == null){
+        result.app == 'Unknown/Unavailable App';
+        appResult = result.app;
+    }
+
 
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }
@@ -43,4 +42,4 @@ let mood = getMood(objArr[objArr.length - 1]);
 console.log(mood);
 moodHeading.innerHTML = `<h1>Mood : ${capitalizeStr(mood.mood)}</h1>`;
 confidenceHeading.innerHTML = `<h1>${Math.trunc(mood.confidence * 100)}% confident of results</h1>`;
-appHeading.innerHTML = `<h1>Currently Using: ${mood.app}</h1>`;
+appHeading.innerHTML = `<h1>Currently Using: '${mood.app}'</h1>`;
