@@ -18,20 +18,34 @@ let getMood = (arr) => {
     let finalMoodConfidence;
     let appResult;
 
-    arr.forEach(result => {
-        Object.keys(result.data).reduce((a, b) => {
-            if(result.data[a] > result.data[b]){
+    let recentEntry = arr[arr.length - 1];
+    //console.log(recentEntry);
+
+        Object.keys(recentEntry.data).reduce((a, b) => {
+            console.log(recentEntry.data[a], recentEntry.data[b])
+            if(recentEntry.data[a] > recentEntry.data[b]){
+                //console.log('A')
+                //console.log(a)
                 finalMoodResult = a;
-                appResult = result.app;
-                finalMoodConfidence = result.data[`${finalMoodResult}`];
+                appResult = recentEntry.app;
+                finalMoodConfidence = recentEntry.data[`${finalMoodResult}`];
+            } else if(recentEntry.data[a] < recentEntry.data[b]){
+                //console.log('B')
+                //console.log(b)
+                finalMoodResult = b;
+                appResult = recentEntry.app;
+                finalMoodConfidence = recentEntry.data[`${finalMoodResult}`];
             }
         })
 
-        if(result.app == '' || result.app == undefined || result.app == null){
+        console.log('Final Mood Result ', finalMoodResult);
+        console.log('Final Confidence ', finalMoodConfidence);
+        console.log('Final App ', appResult);
+
+        /*if(result.app == '' || result.app == undefined || result.app == null){
             result.app == 'Unknown/Unavailable App';
             appResult = result.app;
-        }
-    })
+        }*/
 
     return {mood: finalMoodResult, confidence: finalMoodConfidence, app: appResult};
 }
@@ -43,7 +57,7 @@ let getData = (file) => {
         .then(data => {
             let objArr = data.results;
             let mood = getMood(objArr);
-            moodHeading.innerHTML = `You seem pretty ${capitalizeStr(mood.mood)}`;
+            moodHeading.innerHTML = `You seem pretty ${mood.mood}`;
             confidenceHeading.innerHTML = `${Math.trunc(mood.confidence * 100)}% confidence in results`;
             appHeading.innerHTML = `Currently Using: ${mood.app}`;
         })
