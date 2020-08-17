@@ -4,13 +4,15 @@
   "description": "Code Next Hackathon Project dependencies",
   "main": "/javascript/localServer.js",
   "scripts": {
-    "test": "node expressLocalServer.js"
+    "host": "node expressServer.js",
+	  "readFace": "node faceReader.js",
+    "runFull": "node full_app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/I-graham/CN-Hackathon.git"
   },
-  "author": "Ian, Deyby, Adam, Jesus",
+  "author": "Deyby Rodriguez <deybyr647@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/I-graham/CN-Hackathon/issues"
@@ -21,6 +23,7 @@
     "canvas": "^2.6.1",
     "express": "^4.17.1",
     "face-api.js": "^0.22.2",
+    "node-fetch": "^2.6.0",
     "opn": "^6.0.0"
   }
 }
