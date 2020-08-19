@@ -5,7 +5,8 @@
   "main": "/javascript/localServer.js",
   "scripts": {
     "host": "node expressServer.js",
-	  "readFace": "node faceReader.js",
+    "lint": "npx eslint --fix './**/*.js'",
+    "readFace": "node faceReader.js",
     "runFull": "node full_app.js"
   },
   "repository": {
@@ -25,5 +26,8 @@
     "face-api.js": "^0.22.2",
     "node-fetch": "^2.6.0",
     "opn": "^6.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.7.0"
   }
 }
